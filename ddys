@@ -1,4 +1,4 @@
-var lists = `js:
+var lists = `js:1
 log(TABS);
 let d = [];
 pdfh = jsp.pdfh;
