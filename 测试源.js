@@ -1,60 +1,32 @@
-muban.短视2.二级.img = '.detail-pic&&img&&data-src';
 var rule = {
-    title: '吼吼[飞]',
-    模板:'短视2',
-    host: 'https://ihoho.tv',
-    homeUrl:'/label/rb.html',
-	// url: '/index.php/api/vod#type=fyclass&page=fypage',
-    url: '/index.php/api/vod#type=fyfilter&page=fypage',
-    filterable:1,//是否启用分类筛选,
-    filter_url:'{{fl.cateId}}',
-    filter:{
-        "1":[{"key":"cateId","name":"分类","value":[{"n":"全部","v":"1"},{"n":"动作片","v":"6"},{"n":"喜剧片","v":"7"},{"n":"爱情片","v":"8"},{"n":"科幻片","v":"9"},{"n":"恐怖片","v":"10"},{"n":"剧情片","v":"11"},{"n":"战争片","v":"12"},{"n":"灾难片","v":"29"},{"n":"悬疑片","v":"32"},{"n":"冒险片","v":"30"}]}],
-        "2":[{"key":"cateId","name":"分类","value":[{"n":"全部","v":"2"},{"n":"国产剧","v":"13"},{"n":"港台剧","v":"14"},{"n":"日韩剧","v":"15"},{"n":"美剧","v":"16"}]}]
-    },
-    filter_def:{
-        1:{cateId:'1'},
-        2:{cateId:'2'},
-        3:{cateId:'3'},
-        4:{cateId:'4'},
-        20:{cateId:'20'},
-        37:{cateId:'37'}
-    },
-	class_name:'电影&连续剧&综艺&动漫&纪录片&电影解说',
-    class_url:'1&2&3&4&20&37',
-    headers:{
-        'User-Agent':'PC_UA',
-    },
-    detailUrl:'/vod/detail/id/fyid.html',
-    play_parse: true,
-    lazy:`js:
-        var html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
-        var url = html.url;
-        if (html.encrypt == '1') {
-            url = unescape(url)
-        } else if (html.encrypt == '2') {
-            url = unescape(base64Decode(url))
-        }
-        if (/m3u8|mp4/.test(url)) {
-            input = url
-        } else {
-            input
-        }
-    `,
-    推荐:'.border-box .public-list-box;a&&title;.lazy&&data-src;.public-list-prb&&Text;a&&href',
-    一级:`js:
-        let body = input.split("#")[1];
-        let t = Math.round(new Date / 1e3).toString();
-        let key = md5("DS" + t + "DCC147D11943AF75");
-        let url = input.split("#")[0];
-        body = body + "&time=" + t + "&key=" + key;
-        print(body);
-        fetch_params.body = body;
-        let html = post(url, fetch_params);
-        let data = JSON.parse(html);
-        VODS = data.list.map(function(it) {
-            it.vod_pic = urljoin2(input.split("/in")[0], it.vod_pic);
-            return it
-        });
-    `,
+	title:'好趣网',
+	编码:'GBK',//不填就默认utf-8
+	搜索编码:'GBK',//不填则不编码，默认都是按utf-8.可优先于全局编码属性.比如网页源码编码是gbk,这里可以指定utf-8搜索独立编码。多数情况这个属性不填或者填写gbk应对特殊的网站搜索
+	host:'https://iptv807.com',
+	url: '/fyclass',
+	searchUrl: '/e/sch/index.php?page=fypage&keyboard=**&sear=1',
+	searchable:2,//是否启用全局搜索,
+	quickSearch:0,//是否启用快速搜索,
+	headers:{
+		'User-Agent': 'MOBILE_UA'
+	},
+	timeout:5000,//网站的全局请求超时,默认是3000毫秒
+	class_name:'央视&卫视频道&港澳台频道&国外电视台&广东&湖南&江苏&安徽&浙江&北京&辽宁&江西&山东&黑龙江&上海&云南&四川&河南&湖北&福建&重庆&河北&吉林&广西&山西&陕西&宁夏&海南&甘肃&新疆&内蒙古&天津&贵州&青海&西藏',
+	class_url:'1&2&4&5&3/guangdong&3/hunan&3/jiangsu&3/anhui&3/zhejiang&3/beijing&3/liaoning&3/jiangxi&3/shandong&3/heilongjiang&3/shanghai&3/yunnan&3/sichuan&3/henan&3/hubei&3/fujian&3/zhongqing&3/hebei&3/jilin&3/guangxi&3/shan-xi&3/shanxi&3/ningxia&3/hainan&3/gansu&3/xinjiang&3/neimenggu&3/tianjin&3/guizhou&3/qinghai&3/xizang',
+	play_parse:true,
+	// lazy:'js:input=input.replace("tv", "m")',
+	lazy:'js:var url=jsp.pdfh(request(input),"body&&script&&Html").split("$")[1];input=url',
+	limit:6,
+	推荐: '.p-list-sya&&li;.s&&Text;img&&src;;a&&href',
+	一级: '.bx-sya&&li;span&&Text;img&&src;;a&&href',
+	// 二级: '*',
+	二级: {
+		"title": "strong.t&&Text;.v-top&&a:eq(1)&&Text",
+		"img": ".drop-panel:eq(1)&&img&&src",
+		"desc": ";;;;",
+		"content": ".drop-panel:eq(1)&&p:eq(2)&&Text",
+		"tabs": "js:TABS=['播放源']",
+		'lists': 'js:log(TABS);let d=[];pd=jsp.pd;pdfh=jsp.pdfh;pdfa=jsp.pdfa;if(typeof play_url==="undefined"){var play_url=""}function getLists(html){let src=pdfa(html,".tab-list-syb&&li");let list=[];src.forEach(function(it){let title=pdfh(it,".s&&Text");let url="http://m.haoqu99.com/e/extend/tv.php?id="+pd(it,".tab-item&&data-player");list.push({title:title,url:url})});return{list:list,}}var data=getLists(html);var list=data.list;list=list.map(function(item){return(item.title+"$"+item.url)});log("list------------->"+list);LISTS=[list];'
+	},
+	搜索: 'div.list-box.J-medal&&li;a&&Text;;;a&&href',
 }
