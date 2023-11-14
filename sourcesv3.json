@@ -32,13 +32,13 @@
         "Top": true,
         "note": "1080P 3M",
         "name": "哔嘀影视",
-        "api": "syncnextPlugin://https://raw.githubusercontent.com/icy37785/syncnextPlugin/main/alpha_v2/bdys.json"
+        "api": "syncnextPlugin://https://mxjmjl.github.io/TV/alpha_v2/bdys.json"
     },
     {
         "id": "8f7b10ec-d34c-483b-93a9-f33e83ba8b2e",
         "Top": true,
         "note": "國內視頻網站索引",
         "name": "360影視大全",
-        "api": "syncnextPlugin://https://raw.githubusercontent.com/icy37785/syncnextPlugin/main/alpha_v2/360kan.json"
+        "api": "syncnextPlugin://https://mxjmjl.github.io/TV/alpha_v2/360kan.json"
     }
 ]
