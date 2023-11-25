@@ -1,186 +1,28 @@
 var rule = {
-	title:'4KHDR[磁]',
-	host:'https://www.4khdr.cn',
-        homeUrl: "/forum.php?mod=forumdisplay&fid=2&page=1",
-	url: '/forum.php?mod=forumdisplay&fid=2&filter=typeid&typeid=fyclass&page=fypage',
-	filter_url:'{{fl.class}}',
-	filter:{
-	},
-	searchUrl: '/search.php#searchsubmit=yes&srchtxt=**;post',
-	searchable:2,
-	quickSearch:1,
-	filterable:0,
-	headers:{
-		'User-Agent': 'PC_UA',
-         	'Cookie':'http://127.0.0.1:9978/file:///tvbox/JS/lib/4khdr.txt',
-	},
-	timeout:5000,
-	class_name: "4K电影&4K美剧&4K华语&4K动画&4K纪录片&4K日韩印&蓝光电影&蓝光美剧&蓝光华语&蓝光动画&蓝光日韩印",
-	class_url:"3&8&15&6&11&4&29&31&33&32&34",
-	play_parse:true,
-	play_json:[{
-		re:'*',
-		json:{
-			parse:0,
-			jx:0
-		}
-	}],
-	lazy:'',
-	limit:6,
-	推荐:'ul#waterfall li;a&&title;img&&src;div.auth.cl&&Text;a&&href',
-	一级:'ul#waterfall li;a&&title;img&&src;div.auth.cl&&Text;a&&href',
-	二级:{
-		title:"#thead_subject&&Text",
-		img:"img.zoom&&src",
-		desc:'td[id^="postmessage_"] font&&Text',
-		content:'td[id^="postmessage_"] font&&Text',
-		tabs:`js:
-pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
-TABS=[]
-let d = pdfa(html, 'div.pcb table.t_table a');
-let tabsa = [];
-let tabsq = [];
-let tabsm = false;
-let tabse = false;
-d.forEach(function(it) {
-	let burl = pdfh(it, 'a&&href');
-	if (burl.startsWith("https://www.aliyundrive.com/s/")){
-		tabsa.push("阿里雲盤");
-	}else if (burl.startsWith("https://pan.quark.cn/s/")){
-		tabsq.push("夸克網盤");
-	}else if (burl.startsWith("magnet")){
-		tabsm = true;
-	}else if (burl.startsWith("ed2k")){
-		tabse = true;
-	}
-});
-if (tabsm === true){
-	TABS.push("磁力");
-}
-if (tabse === true){
-	TABS.push("電驢");
-}
-if (false && tabsa.length + tabsq.length > 1){
-	TABS.push("選擇右側綫路");
-}
-let tmpIndex;
-tmpIndex=1;
-tabsa.forEach(function(it){
-	TABS.push(it + tmpIndex);
-	tmpIndex = tmpIndex + 1;
-});
-tmpIndex=1;
-tabsq.forEach(function(it){
-	TABS.push(it + tmpIndex);
-	tmpIndex = tmpIndex + 1;
-});
-log('4khdr TABS >>>>>>>>>>>>>>>>>>' + TABS);
-`,
-		lists:`js:
-log(TABS);
-pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
-LISTS = [];
-let d = pdfa(html, 'div.pcb table.t_table a');
-let lista = [];
-let listq = [];
-let listm = [];
-let liste = [];
-d.forEach(function(it){
-	let burl = pdfh(it, 'a&&href');
-	let title = pdfh(it, 'a&&Text');
-	log('4khdr title >>>>>>>>>>>>>>>>>>>>>>>>>>' + title);
-	log('4khdr burl >>>>>>>>>>>>>>>>>>>>>>>>>>' + burl);
-	let loopresult = title + '$' + burl;
-	if (burl.startsWith("https://www.aliyundrive.com/s/")){
-		if (true){
-		if (TABS.length==1){
-			burl = "http://127.0.0.1:9978/proxy?do=ali&type=push&confirm=0&url=" + encodeURIComponent(burl);
-		}else{
-			burl = "http://127.0.0.1:9978/proxy?do=ali&type=push&url=" + encodeURIComponent(burl);
-		}
-		}else{
-			burl = 'push://' + burl;
-		}
-		loopresult = title + '$' + burl;
-		lista.push(loopresult);
-	}else if (burl.startsWith("https://pan.quark.cn/s/")){
-		if (true){
-		if (TABS.length==1){
-			burl = "http://127.0.0.1:9978/proxy?do=quark&type=push&confirm=0&url=" + encodeURIComponent(burl);
-		}else{
-			burl = "http://127.0.0.1:9978/proxy?do=quark&type=push&url=" + encodeURIComponent(burl);
-		}
-		}else{
-			burl = 'push://' + burl;
-		}
-		loopresult = title + '$' + burl;
-		listq.push(loopresult);
-	}else if (burl.startsWith("magnet")){
-		listm.push(loopresult);
-	}else if (burl.startsWith("ed2k")){
-		liste.push(loopresult);
-	}
-});
-if (listm.length>0){
-	LISTS.push(listm);
-}
-if (liste.length>0){
-	LISTS.push(liste);
-}
-if (false && lista.length + listq.length > 1){
-	LISTS.push(["選擇右側綫路，或3秒後自動跳過$http://127.0.0.1:10079/delay/"]);
-}
-lista.forEach(function(it){
-	LISTS.push([it]);
-});
-listq.forEach(function(it){
-	LISTS.push([it]);
-});
-`,
-
-	},
-	搜索:`js:
-pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
-if (rule_fetch_params.headers.Cookie.startsWith("http")){
-	rule_fetch_params.headers.Cookie=fetch(rule_fetch_params.headers.Cookie);
-	let cookie = rule_fetch_params.headers.Cookie;
-	setItem(RULE_CK, cookie);
-};
-log('4khdr search cookie>>>>>>>>>>>>>>>' + rule_fetch_params.headers.Cookie);
-let new_host= HOST + '/search.php';
-let new_html=request(new_host);
-let formhash = pdfh(new_html, 'input[name="formhash"]&&value');
-log("4khdr formhash>>>>>>>>>>>>>>>" + formhash);
-let params = 'formhash=' + formhash + '&searchsubmit=yes&srchtxt=' + encodeURIComponent(KEY);
-let _fetch_params = JSON.parse(JSON.stringify(rule_fetch_params));
-let postData = {
-    body: params
-};
-Object.assign(_fetch_params, postData);
-log("4khdr search postData>>>>>>>>>>>>>>>" + JSON.stringify(_fetch_params));
-let search_html = post( HOST + '/search.php', _fetch_params)
-//log("4khdr search result>>>>>>>>>>>>>>>" + search_html);
-let d=[];
-let dlist = pdfa(search_html, 'div#threadlist ul li');
-dlist.forEach(function(it){
-	let title = pdfh(it, 'h3&&Text');
-	if (searchObj.quick === true){
-		if (title.includes(KEY)){
-			title = KEY;
-		}
-	}
-	let img = "";
-	let content = pdfh(it, 'p:eq(3)&&Text');
-	let desc = pdfh(it, 'p:eq(2)&&Text');
-	let url = pd(it, 'a&&href', HOST);
-	d.push({
-		title:title,
-		img:img,
-		content:content,
-		desc:desc,
-		url:url
-		})
-});
-setResult(d);
-	`,
+    title:'360影视',
+    host:'https://www.360kan.com',
+    homeUrl:'https://api.web.360kan.com/v1/rank?cat=2&size=9',
+    detailUrl:'https://api.web.360kan.com/v1/detail?cat=fyclass&id=fyid',
+    searchUrl:'https://api.so.360kan.com/index?force_v=1&kw=**&from=&pageno=fypage&v_ap=1&tab=all',
+    url:'https://api.web.360kan.com/v1/filter/list?catid=fyclass&rank=rankhot&cat=&year=&area=&act=&size=35&pageno=fypage&callback=',
+    headers:{
+        'User-Agent':'MOBILE_UA'
+    },
+    timeout:5000,
+    class_name:'电视剧&电影&综艺&动漫',
+    class_url:'2&1&3&4',
+    limit:5,
+    multi:1,
+    searchable:2,
+    play_parse:true,
+    lazy:'js:input=input.split("?")[0];log(input);',
+    // 疑似t4专用的
+    // lazy:'js:input={parse: 1, playUrl: "", jx: 1, url: input.split("?")[0]}',
+    // 手动调用解析请求json的url,此lazy不方便
+    // lazy:'js:input="https://cache.json.icu/home/api?type=ys&uid=292796&key=fnoryABDEFJNPQV269&url="+input.split("?")[0];log(input);let html=JSON.parse(request(input));log(html);input=html.url||input',
+    推荐:'json:data;title;cover;comment;cat+ent_id;description',
+    一级:'json:data.movies;title;cover;pubdate;id;description',
+    二级:'',
+    二级:'js:let html=JSON.parse(fetch(input,fetch_params));let data=html.data;let tilte=data.title;let img=data.cdncover;let vod_type=data.moviecategory.join(",");let area=data.area.join(",");let director=data.director.join(",");let actor=data.actor.join(",");let content=data.description;let base_vod={vod_id:input,vod_name:tilte,type_name:vod_type,vod_actor:actor,vod_director:director,vod_content:content,vod_remarks:area,vod_pic:urljoin2(input,img)};let delta=200;let vod_play={};let sites=data.playlink_sites;sites.forEach(function(site){let playList="";let vodItems=[];if(data.allupinfo){let total=parseInt(data.allupinfo[site]);for(let j=1;j<total;j+=delta){let end=Math.min(total,j+delta-1);let url2=buildUrl(input,{start:j,end:end,site:site});let vod_data=JSON.parse(fetch(url2),fetch_params).data;if(vod_data.allepidetail){vod_data=vod_data.allepidetail[site];vod_data.forEach(function(item,index){vodItems.push((item.playlink_num||"")+"$"+urlDeal(item.url||""))})}else{vod_data=vod_data.defaultepisode;vod_data.forEach(function(item,index){vodItems.push((item.period||"")+(item.name||"")+"$"+urlDeal(item.url)||"")})}}}else{let item=data.playlinksdetail[site];vodItems.push((item.sort||"")+"$"+urlDeal(item.default_url||""))}if(vodItems.length>0){playList=vodItems.join("#")}if(playList.length<1){return}vod_play[site]=playList});let tabs=Object.keys(vod_play);let playUrls=[];for(let id in tabs){print("id:"+id);playUrls.push(vod_play[tabs[id]])}if(tabs.length>0){let vod_play_from=tabs.join("$$$");let vod_play_url=playUrls.join("$$$");base_vod.vod_play_from=vod_play_from;base_vod.vod_play_url=vod_play_url}VOD=base_vod;',
+    搜索:'json:data.longData.rows;titleTxt||titlealias;cover;cat_name;cat_id+en_id;description',
 }
