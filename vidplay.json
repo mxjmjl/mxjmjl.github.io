@@ -10,5 +10,6 @@
 {"key":"drpy_js_cokemv","name":"影视 | cokemv","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/cokemv.js"},
 {"key":"drpy_js_网飞","name":"影视 | 网飞.TV","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/网飞.TV.js"},
 {"key":"drpy_js_吼吼","name":"影视 | 吼吼[飞]","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/吼吼[飞].js"},
+{"key":"天空资源","name":"天空资源","protocol": "VOD","ext":"https://m3u8.tiankongapi.com/api.php/provide/vod/","searchable":1},
 {"key":"drpy_js_测试源","name":"影视 | 测试源","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/测试源.js"},
 ]}
