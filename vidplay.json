@@ -11,4 +11,4 @@
 {"key":"天空资源","name":"VOD | 天空资源","protocol": "VOD","ext":"https://m3u8.tiankongapi.com/api.php/provide/vod/","searchable":1},
 {"key":"drpy_js_测试源","name":"影视 | 测试源","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/测试源.js"}
 ],
-"extensions":["https://github.moeyy.xyz/https://raw.githubusercontent.com/chicken111/gao/master/lib/DRPY.zip","https://github.moeyy.xyz/https://raw.githubusercontent.com/chicken111/gao/master/lib/IPTV.zip"]}
+"extensions":["https://github.moeyy.xyz/https://raw.githubusercontent.com/chicken111/gao/master/lib/DRPY.zip"]}
