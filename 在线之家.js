@@ -40,7 +40,10 @@ var rule = {
 			var ifrwy = request(url, {
 				headers: {
 					"User-Agent": MOBILE_UA,
-					"Referer": HOST
+					"Referer": HOST,
+					'Sec-Fetch-Dest': 'iframe',
+					'Sec-Fetch-Site': 'cross-site',
+					'Sec-Fetch-Mode': 'navigate'
 				}
 			});
 			// let code = ifrwy.match(/var url = '(.*?)'/)[1].split('').reverse().join('');
