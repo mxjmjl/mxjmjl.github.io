@@ -1,14 +1,14 @@
 {"sites":[
-{"key":"drpy_js_豆瓣","name":"搜索 | 豆瓣","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/drpy.js","searchable":1},
-{"key":"drpy_js_wogg","name":"阿里 | 玩偶哥哥","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/wogg.js","searchable":1},
-{"key":"drpy_js_wobg","name":"阿里 | 玩偶表哥","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/wobg.js","searchable":1},
-{"key":"drpy_js_gitcafe","name":"阿里 | 小纸条","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/gitcafe.js","searchable":1},
-{"key":"drpy_js_jojo","name":"阿里 | JOJO","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/jojo.js","searchable":0},
-{"key":"drpy_js_好趣网","name":"直播 | 好趣网","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/好趣网.js"},
-{"key":"drpy_js_ddys","name":"影视 | 低端影视","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/ddys.js","searchable":1},
-{"key":"drpy_js_厂长资源","name":"影视 | 厂长资源","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/厂长资源.js"},
-{"key":"drpy_js_在线之家","name":"影视 | 在线之家","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/在线之家.js"},
-{"key":"drpy_js_网飞","name":"影视 | 网飞.TV","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/网飞.TV.js"},
-{"key":"drpy_js_测试源","name":"影视 | 测试源","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/测试源.js"}
+{"key":"drpy_js_豆瓣","name":"⌛️搜索 | 豆瓣","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/drpy.js","searchable":1},
+{"key":"drpy_js_wogg","name":"💨阿里 | 玩偶哥哥","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/wogg.js","searchable":1},
+{"key":"drpy_js_wobg","name":"💨阿里 | 玩偶表哥","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/wobg.js","searchable":1},
+{"key":"drpy_js_gitcafe","name":"💨阿里 | 小纸条","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/gitcafe.js","searchable":1},
+{"key":"drpy_js_jojo","name":"💨阿里 | JOJO","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/jojo.js","searchable":0},
+{"key":"drpy_js_好趣网","name":"📡直播 | 好趣网","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/好趣网.js"},
+{"key":"drpy_js_ddys","name":"🫧影视 | 低端影视","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/ddys.js","searchable":1},
+{"key":"drpy_js_厂长资源","name":"🫧影视 | 厂长资源","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/厂长资源.js"},
+{"key":"drpy_js_在线之家","name":"🫧影视 | 在线之家","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/在线之家.js"},
+{"key":"drpy_js_网飞","name":"🫧影视 | 网飞.TV","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/网飞.TV.js"},
+{"key":"drpy_js_测试源","name":"🫧影视 | 测试源","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/测试源.js"}
 ],
 "extensions":["https://github.moeyy.xyz/https://raw.githubusercontent.com/chicken111/gao/master/lib/DRPY.zip","https://github.moeyy.xyz/https://raw.githubusercontent.com/chicken111/gao/master/lib/IPTV.zip","https://github.moeyy.xyz/https://raw.githubusercontent.com/chicken111/gao/master/lib/Alist_Ya.zip?v3"]}
