@@ -42,6 +42,15 @@
         "api": "syncnextPlugin://https://mxjmjl.github.io/alpha_v2/bdys.json"
     },
     {
+        "id": "7144ceed-563d-4bef-9cd3-6f3d789c1a70",
+        "Top": true,
+        "note": "无广告",
+        "Search": true,
+        "title": "libvio",
+        "name": "libvio",
+        "api": "syncnextPlugin://https://mxjmjl.github.io/alpha_v2/libvio.json"
+    },
+    {
         "id": "d76326d5-69c2-4dce-a86c-50bbdd478000",
         "Top": true,
         "note": "海量動漫",
