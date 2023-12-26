@@ -26,5 +26,23 @@
         "title": "廠長資源",
         "name": "SyncnextCZSPP",
         "api": "Syncnext://CZSPP"
+        },
+    {
+        "id": "d76326d5-69c2-4dce-a86c-50bbdd478000",
+        "Top": true,
+        "note": "海量動漫",
+        "Search": true,
+        "title": "AGE 動漫",
+        "name": "SyncnextAGE",
+        "api": "Syncnext://AGE"
+    },
+    {
+        "id": "b374a438-50e3-4b89-b555-62781f5ad7fb",
+        "Top": true,
+        "note": "海外 IP",
+        "Search": true,
+        "title": "歐樂影院",
+        "name": "SyncnextOLE",
+        "api": "Syncnext://OLE"
     }
 ]
