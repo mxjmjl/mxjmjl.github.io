@@ -1,15 +1,5 @@
 [
     {
-        "id": "7812ea6f-85bd-40ee-a3de-b2ed76d52bdf",
-        "Top": true,
-        "note": "粤语港剧社区平台",
-        "GEO": "Only-China",
-        "Search": true,
-        "title": "埋堆堆",
-        "name": "SyncnextMDD",
-        "api": "Syncnext://MDD"
-    },
-    {
         "id": "e10df297-5359-41dd-8d29-dcc103ecb8b7",
         "Top": true,
         "note": "片源高畫質追求",
@@ -58,14 +48,5 @@
         "title": "AGE 動漫",
         "name": "SyncnextAGE",
         "api": "Syncnext://AGE"
-    },
-    {
-        "id": "b374a438-50e3-4b89-b555-62781f5ad7fb",
-        "Top": true,
-        "note": "海外 IP",
-        "Search": true,
-        "title": "歐樂影院",
-        "name": "SyncnextOLE",
-        "api": "Syncnext://OLE"
     }
 ]
