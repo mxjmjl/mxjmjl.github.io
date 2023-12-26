@@ -48,5 +48,12 @@
         "title": "AGE 動漫",
         "name": "SyncnextAGE",
         "api": "Syncnext://AGE"
+    },
+    {
+        "id": "23f31663-8247-4b3c-843d-e70483b23e0a",
+        "note": "720P，無廣告。OneDrive 網盤地址。",
+        "Search": true,
+        "name": "粵語劇",
+        "api": "syncnextPlugin://https://raw.githubusercontent.com/qoli/syncnextPlugin/main/plugin_colafun/config.json"
     }
 ]
