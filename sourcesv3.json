@@ -39,6 +39,7 @@
         "Search": true,
         "title": "libvio",
         "name": "libvio",
+        "cover": "https://s2.loli.net/2023/12/28/KoJRfMV4DsgNTl9.png",
         "api": "syncnextPlugin://https://mxjmjl.github.io/alpha_v2/libvio.json"
     },
     {
