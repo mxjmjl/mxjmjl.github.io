@@ -22,6 +22,7 @@
         "Top": true,
         "note": "在线观看最新美剧",
         "name": "在线之家",
+        "cover": "https://s2.loli.net/2023/12/28/qP7yAGswkvB2nDU.png",
         "api": "syncnextPlugin://https://mxjmjl.github.io/alpha_v2/zxzj.json"
     },
     {
