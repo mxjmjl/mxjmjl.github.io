@@ -1,11 +1,4 @@
-{
-
-"spider": "http://172.16.8.212:9090/py/JAR/Yoursmile-20231107-md5-CA638142321A8AF95614E02009CE4068.jar;md5;CA638142321A8AF95614E02009CE4068",
-
-	"wallpaper": "http://111.67.196.181/api",
-	"warningText":"接口完全免费，切勿付费购买!!!!!!!!!!!!!",
- "lives": [
-    {
+  {
       "name": "直播",
       "type": 0,
       "playerType": 1,
