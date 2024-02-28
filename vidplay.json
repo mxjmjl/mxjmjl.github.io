@@ -1,8 +1,10 @@
 {"sites":[
 {"key":"drpy_js_豆瓣","name":"⌛ 搜索 | 豆瓣","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/drpy.js","searchable":1},
 {"key":"drpy_js_ysc","name":"💨 阿里 | 影视车","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/ysc.js","searchable":1},
+{"key":"drpy_js_tudou","name":"💨 阿里 | 土豆资源站","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/lvdoui.js","searchable":1},
 {"key":"drpy_js_wogg","name":"💨 阿里 | 玩偶哥哥","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/wogg.js","searchable":1},
 {"key":"drpy_js_wobg","name":"💨 阿里 | 玩偶表哥","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/wobg.js","searchable":1},
+{"key":"drpy_js_ttkx","name":"💨 阿里 | 玩我哥哥","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/ttkx.js","searchable":1},
 {"key":"drpy_js_gitcafe","name":"💨 阿里 | 小纸条","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/gitcafe.js","searchable":1},
 {"key":"drpy_js_直播大全","name":"📡 电视 | 直播大全","protocol":"IPTV","ext":"https://mxjmjl.github.io/live2mv_data.json"},
 {"key":"drpy_js_好趣网","name":"📡 电视 | 好趣网","protocol":"DRPY_Crack","ext":"https://mxjmjl.github.io/好趣网.js"},
