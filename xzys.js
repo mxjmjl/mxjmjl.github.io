@@ -25,7 +25,9 @@ var rule = {
 			jx:0
 		}
 	}],
-	lazy:'',
+	lazy:`js:
+	input = panPlay(input,playObj.flag)
+	`,
 	limit:6,
 	推荐:'div.container div.row a:has(>img);img&&alt;img&&src;img&&alt;a&&href',
 	一级:'div.container div.row div.list-boxes;img&&alt;img&&src;div.list-actions&&Text;a&&href',
@@ -38,7 +40,7 @@ var rule = {
 pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
 TABS=[]
 let d = pdfa(html, 'div.tc-box a');
-let addtabs = false;
+let listurl = [];
 d.forEach(function(it) {
 	let burl = pdfh(it, 'a&&href') || '';
 
@@ -47,46 +49,22 @@ d.forEach(function(it) {
 	 burl.startsWith("https://pan.quark.cn/s/") ||
 	 burl.startsWith("https://pan.xunlei.com/s/") ||
 	 burl.startsWith("https://pan.baidu.com/s/") ){
-		addtabs = true;
+		listurl.push(burl);
 	}else if (burl.startsWith("magnet")){
-		addtabs = true;
+		listurl.push(burl);
 	}else if (burl.startsWith("ed2k")){
-		addtabs = true;
+		listurl.push(burl);
 	}
 });
-if (addtabs === true){
-	TABS.push("分享链接");
-}
-log('xzys TABS >>>>>>>>>>>>>>>>>>' + TABS);
-`,
-		lists:`js:
-log(TABS);
-pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
-LISTS = [];
-let d = pdfa(html, 'div.tc-box a');
-let listurl = [];
-d.forEach(function(it){
-	let burl = pdfh(it, 'a&&href') || '';
-	let title = pdfh(it, 'a&&Text') || '';
-	log('dygang title >>>>>>>>>>>>>>>>>>>>>>>>>>' + title);
-	log('dygang burl >>>>>>>>>>>>>>>>>>>>>>>>>>' + burl);
-	let loopresult = title + '$' + burl;
-	if (burl.startsWith("https://www.aliyundrive.com/s/") ||
-	 burl.startsWith("https://www.alipan.com/s/") || 
-	 burl.startsWith("https://pan.quark.cn/s/") ||
-	 burl.startsWith("https://pan.xunlei.com/s/") ||
-	 burl.startsWith("https://pan.baidu.com/s/") ){
-		listurl.push(loopresult);
-	}else if (burl.startsWith("magnet")){
-		listurl.push("magnet$" + loopresult);
-	}else if (burl.startsWith("ed2k")){
-		listurl.push("magnet$" + loopresult);
-	}
-});
-if (listurl.length>0){
-	LISTS.push(listurl);
+if (listurl.length){
+	initPan();
+	let alistVod = panDetailContent(vod ,listurl);
+	TABS = alistVod.tabs
+	LISTS = alistVod.lists
+	detailError = alistVod.error
 }
 `,
+		lists:`js:`,
 
 	},
 	搜索:`js:
