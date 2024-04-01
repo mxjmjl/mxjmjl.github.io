@@ -13,7 +13,7 @@ var rule = {
     class_url:'hyds&rhds&omds&qtds&hydy&rhdy&omdy&qtdy&hydm&rhdm&omdm&jlp&zyp&hyyy&rhyy&omyy&qtyy',
     play_parse:true,
     lazy:`js:
-    input = alistPlay(input)
+    input = panPlay(input,playObj.flag)
     `,
     limit:5,
     推荐:`js:
@@ -81,11 +81,12 @@ var rule = {
         let remark="";
         let vod={vod_id:id,vod_name:title,vod_pic:pic,type_name:typeName,vod_remarks:remark,vod_content:dec};
         
-        initAlistShare();
-        let alistVod = alistDetailContent(vod ,[input]);
-        TABS = alistVod.tabs
-        LISTS = alistVod.lists
-        vod["vod_play_from"]=alistVod.tabs.join("$$$");
+        initPan();
+        let panVod = panDetailContent(vod ,[input]);
+        TABS = panVod.tabs
+        LISTS = panVod.lists
+        detailError = panVod.error
+        vod["vod_play_from"]=panVod.tabs.join("$$$");
 
         for (var i in LISTS) {
             if (LISTS.hasOwnProperty(i)) {
