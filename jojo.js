@@ -1,7 +1,7 @@
 var rule={
     title:'JOJO',
     模板:'AlistShare',
-    host:'https://jiohub.top',
+    host:'https://pan.jiohub.top',
     url:'/video/fyclass?page=fypage&size=18',
     filterable:0,//是否启用分类筛选,
     filter_url:'',
