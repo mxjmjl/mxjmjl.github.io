@@ -6,7 +6,7 @@ var rule = {
 	title:'LIBVIO',
 	模板:'首图2',
 	// host:'https://tv.libvio.cc',
-	host:'https://tv.libvio.cc',
+	host:'https://www.libviohd.com',
 	//hostJs:'print(HOST);let html=request(HOST,{headers:{"User-Agent":PC_UA}});let src=jsp.pdfh(html,"li:eq(0)&&a:eq(0)&&href");print(src);HOST=src',
 	// url:'/type/fyclass-fypage.html',
 	url:'/show/fyclassfyfilter.html',
@@ -35,99 +35,37 @@ var rule = {
 		"content": ".detail&&Text",
 		"tabs": `js:
 pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
-TABS=[];
-let tabsq=[];
-let tabsm3u8=[];
-let d = pdfa(html, 'div.stui-vodlist__head');
-d.forEach(function(it) {
-	let name = pdfh(it, 'h3&&Text');
-	if (!/(猜你|喜欢|剧情|热播)/.test(name)){
-		log("libvio tabs name>>>>>>>>>>>>>>>" + name);
-		if (name.includes("夸克")){
-			tabsq.push("夸克網盤");
-		}else if (name.includes("阿里")){
-			tabsq.push("阿里雲盤");
-		}else{
-			tabsm3u8.push(name);
-		}
-	}
-});
-if (tabsq.length==1){
-	TABS=TABS.concat(tabsq);
-}else{
-	let tmpIndex=1;
-	tabsq.forEach(function(it){
-		TABS.push(it+tmpIndex);
-		tmpIndex++;
-	});
-}
-TABS=TABS.concat(tabsm3u8);
-log('libvio TABS >>>>>>>>>>>>>>>>>>' + TABS);
-`,
-		"lists":`js:
-pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
 LISTS = [];
 let listq=[];
-let listm3u8=[];
 let d = pdfa(html, 'div.stui-vodlist__head');
 d.forEach(function(it){
 	let name = pdfh(it, 'h3&&Text');
 	if (!/(猜你|喜欢|剧情|热播)/.test(name)){
 		log("libvio tabs name>>>>>>>>>>>>>>>" + name);
 		let durl = pdfa(it, 'ul li');
-		let dd = [];
 		durl.forEach(function(it1){
-			let dhref = pd(it1, 'a&&href', HOST);
+			var dhref = pd(it1, 'a&&href', HOST);
 			let dname = pdfh(it1, 'a&&Text');
-			dd.push(dname + "$" + dhref);
+			if (/(夸克|阿里)/.test(name)){
+				var html = JSON.parse(request(dhref).match(/r player_.*?=(.*?)</)[1]);
+				dhref = html.url;
+				listq.push(dhref);
+			}
 		});
-		if (/(夸克|阿里)/.test(name)){
-			listq.push(dd);
-		}else{
-			listm3u8.push(dd);
-		}
 	}
 });
-LISTS=LISTS.concat(listq);
-LISTS=LISTS.concat(listm3u8);
+if (listq.length){
+	initPan();
+	let alistVod = panDetailContent(vod ,listq);
+	TABS = alistVod.tabs
+	LISTS = alistVod.lists
+	detailError = alistVod.error
+}
 `,
+		"lists":`js:`,
 	},
 	lazy:`js: 
-log("libvio lazy player input>>>>>>>>>>>>"+input);
-var html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
-log("libvio lazy player json>>>>>>>>>>>>"+JSON.stringify(html));
-var url = html.url;
-var from = html.from;
-var next = html.link_next;
-var id = html.id;
-var nid = html.nid;
-if (/(www.aliyundrive.com|pan.quark.cn|www.alipan.com)/.test(url)){
-	let confirm = "";
-	if (TABS.length==1){
-		confirm="&confirm=0";
-	}
-	let type="ali";
-	if (url.includes("www.aliyundrive.com") || url.includes("www.alipan.com")){
-		type = "ali";
-	}else if (url.includes("pan.quark.cn")){
-		type = "quark";
-	}
-	input = {
-		jx: 0,
-		url: 'http://127.0.0.1:9978/proxy?do=' + type +'&type=push' + confirm + '&url=' + encodeURIComponent(url),
-		parse: 0
-	}
-}else{
-	var paurl = request("https://libvio.cc/static/player/" + from + ".js").match(/ src="(.*?)'/)[1];
-	if (/https/.test(paurl)) {
-		var purl = paurl + url + "&next=" + next + "&id=" + id + "&nid=" + nid;
-		input = {
-			jx: 0,
-			url: request(purl).match(/var .* = '(.*?)'/)[1],
-			parse: 0
-		}
-	}
-}
+input = panPlay(input,playObj.flag)
 `,
 	searchUrl:'/index.php/ajax/suggest?mid=1&wd=**&limit=50',
 	detailUrl:'/detail/fyid.html', //非必填,二级详情拼接链接
