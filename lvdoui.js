@@ -1,7 +1,7 @@
 var rule={
     title:'土豆阿里资源站',
     模板:'AlistShare',
-    host:'https://ali.lvdoui.top',
+    host:'https://tudou.lvdoui.top/',
     url:'/index.php/vod/show/id/fyclass/page/fypage.html',
     filterable:0,//是否启用分类筛选,
     filter_url:'',
