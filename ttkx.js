@@ -1,7 +1,7 @@
 var rule={
     title:'玩我哥哥',
     模板:'AlistShare',
-    host:'http://www.ttkx.live',
+    host:'http://www.ttkx.live:3328',
     url:'/index.php/vod/show/id/fyclass/page/fypage.html',
     filterable:0,//是否启用分类筛选,
     filter_url:'',
