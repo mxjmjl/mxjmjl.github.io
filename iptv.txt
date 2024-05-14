@@ -1,8 +1,3 @@
-#EXTM3U
-#EXT-X-APP APTV
-#EXT-X-APTV-TYPE remote
-#EXT-X-SUB-URL https://yang-1989.eu.org/m3u/Gather
-
 #EXTINF:-1 tvg-name="XX" tvg-logo="https://yang-1989.eu.org/logo/影迷电影.png" group-title="•温馨提示",免费·看不了？刷新订阅试试! 佛系维护...
 https://yang-1989.eu.org/material/x.m3u8
 #EXTINF:-1 tvg-name="XX" tvg-logo="https://yang-1989.eu.org/logo/影迷电影.png" group-title="•温馨提示",新增·咪咕体育-免费节目为主.
