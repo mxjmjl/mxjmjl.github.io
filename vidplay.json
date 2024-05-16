@@ -49,7 +49,6 @@
 {"key":"drpy_js_NY影院","name":"影视 | NY影院","protocol":"DRPY_Crack","ext":"https://gaotianliuyun.github.io/gao/js/NY影院.js","searchable":1},
 {"key":"drpy_js_欧帝影院","name":"影视 | 欧帝影院","protocol":"DRPY_Crack","ext":"https://gaotianliuyun.github.io/gao/js/欧帝影院.js","searchable":1},
 {"key":"drpy_js_追剧迷","name":"影视 | 追剧迷","protocol":"DRPY_Crack","ext":"https://gaotianliuyun.github.io/gao/js/追剧迷.js","searchable":1},
-
 {"key":"drpy_js_童趣","name":"少儿 | 童趣","protocol":"DRPY_Crack","ext":"https://gaotianliuyun.github.io/gao/js/童趣.js","searchable":1},
 {"key":"drpy_js_哔哩直播","name":"弹幕 | 哔哩直播","protocol":"DRPY_Crack","ext":"https://gaotianliuyun.github.io/gao/js/哔哩直播.js","searchable":1},
 {"key":"drpy_js_JustLive","name":"弹幕 | JustLive","protocol":"DRPY_Crack","ext":"https://gaotianliuyun.github.io/gao/js/JustLive.js","searchable":1},
@@ -63,4 +62,4 @@
 {"key":"drpy_js_酷6网","name":"聚合 | 酷6网","protocol":"DRPY_Crack","ext":"https://gaotianliuyun.github.io/gao/js/酷6网.js","searchable":1},
 {"key":"drpy_js_A8音乐","name":"MV | A8音乐","protocol":"DRPY_Crack","ext":"https://gaotianliuyun.github.io/gao/js/A8音乐.js","searchable":1}
 ],
-"extensions":["https://gitbox520.github.io/gao/lib/DRPY.zip?v13","https://gitbox520.github.io/gao/lib/IPTV.zip?v2","https://gitbox520.github.io/gao/lib/Alist_Ya.zip?v8","https://gitbox520.github.io/gao/lib/APPYS.zip?v1","https://file.cubeplayer.top/Alist.zip?v=5","https://file.cubeplayer.top/Alist_VOD.zip?v=5"]}
+"extensions":["https://gitbox520.github.io/gao/lib/DRPY.zip?v13","https://gitbox520.github.io/gao/lib/IPTV.zip?v2","https://gitbox520.github.io/gao/lib/Alist_Ya.zip?v9","https://gitbox520.github.io/gao/lib/APPYS.zip?v1","https://file.cubeplayer.top/Alist.zip?v=5","https://file.cubeplayer.top/Alist_VOD.zip?v=5"]}
