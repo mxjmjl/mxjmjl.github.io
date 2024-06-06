@@ -9,7 +9,7 @@
   {"key":"csp_libvio","name":"🫧 影视 | LIBVIO","type":3,"api":"csp_libvio","searchable":1,"quickSearch":1,"filterable":1,"changeable": 1},
   {"key":"csp_Bdys","name":"🫧 影视 | 哔嘀影视","type":3,"api":"csp_Bdys","searchable":1,"quickSearch":1,"filterable":1},
   {"key":"csp_Zxzj","name":"🫧 影视 | 在线之家","type":3,"api":"csp_Zxzj","searchable":1,"quickSearch":1,"changeable":1,"ext":"https://www.zxzja.com/"},
-  {"key":"360资源","name":"🫧 影视 | 360资源","type":1,"api":"https://360zy.com/api.php/provide/vod/","searchable":1,"quickSearch":1},
+  {"key":"360资源","name":"🟡360资源","type":1,"api":"https://360zy.com/api.php/provide/vod/","searchable":1,"quickSearch":1},
   {"key": "csp_age", "name": "👽 动漫 | AGE动漫", "type": 3, "api": "csp_age", "searchable": 1, "quickSearch": 1, "filterable": 1},
   {"key": "csp_girlgirllove", "name": "👽 动漫 | ギリギリ动漫", "type": 3, "api": "csp_girlgirllove", "searchable": 1, "quickSearch": 1, "filterable": 1}
   ]}
