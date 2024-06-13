@@ -11,8 +11,8 @@
   {"key":"csp_Zxzj","name":"🫧 影视 | 在线之家","type":3,"api":"csp_Zxzj","searchable":1,"quickSearch":1,"changeable":1,"ext":"https://www.zxzja.com/"},
   {"key": "csp_age", "name": "👽 动漫 | AGE动漫", "type": 3, "api": "csp_age", "searchable": 1, "quickSearch": 1, "filterable": 1},
   {"key": "csp_girlgirllove", "name": "👽 动漫 | ギリギリ动漫", "type": 3, "api": "csp_girlgirllove", "searchable": 1, "quickSearch": 1, "filterable": 1},
-  {"key":"黑木","name":"🟡黑木耳","type":1,"api":"https://www.heimuer.tv/api.php/provide/vod"},
-  {"key":"刺桐","name":"🟡刺桐","type":1,"api":"http://ys9.cttv.vip/api.php/provide/vod/"},
-  {"key":"官网","name":"🟡官网","type":1,"api":"http://gwcms.cttv.vip/api.php/provide/vod/"},
-  {"key":"业余","name":"🟡业余","type":1,"api":"https://yyff.540734621.xyz/api.php/provide/vod/"}
+  {"key":"黑木","name":"🟡 影视 | 黑木耳","type":1,"api":"https://www.heimuer.tv/api.php/provide/vod"},
+  {"key":"刺桐","name":"🟡 影视 | 刺桐","type":1,"api":"http://ys9.cttv.vip/api.php/provide/vod/"},
+  {"key":"官网","name":"🟡 影视 | 官网","type":1,"api":"http://gwcms.cttv.vip/api.php/provide/vod/"},
+  {"key":"业余","name":"🟡 影视 | 业余","type":1,"api":"https://yyff.540734621.xyz/api.php/provide/vod/"}
   ]}
